@@ -12,6 +12,7 @@ import Spokestack
 class PipelineStore: ObservableObject {
     
     @Published var isListening: Bool
+    
     @Published var text: String
     
     enum PipelineMode {
@@ -19,24 +20,24 @@ class PipelineStore: ObservableObject {
         case wakeword
     }
     
-    private var mode:PipelineMode = .push2talk
-    
-    init(text: String) {
-        self.text = text
-        self.isListening = false;
-    }
+    private var mode: PipelineMode = .push2talk
     
     lazy private var pipeline: SpeechPipeline = {
-       
         return SpeechPipeline(self, pipelineDelegate: self)
     }()
+    
+    init(_ text: String) {
+        
+        self.text = text
+        self.isListening = false
+    }
     
     func startPipeline() {
         print("[\(mode)] starting pipeline")
         self.pipeline.start()
     }
     
-    func configure(mode:PipelineMode) {
+    func configure(_ mode: PipelineMode) {
         print("configured mode \(mode)")
         self.mode = mode
         DispatchQueue.main.async {
@@ -66,14 +67,13 @@ class PipelineStore: ObservableObject {
             self.isListening = false
         }
     }
-    
 }
 
 extension PipelineStore: SpeechEventListener {
     
     func activate() {
         print("[\(mode)] heard wakeword")
-        if (mode == .wakeword) {
+        if mode == .wakeword {
             self.pipeline.activate()
             DispatchQueue.main.async {
                 self.isListening = true
@@ -83,8 +83,10 @@ extension PipelineStore: SpeechEventListener {
 
     func deactivate() {
         print("[\(mode)] heard speech ended")
-        //this gets called after the user stops talking
-        //we need to actually deactive the pipeline next
+        
+        /// this gets called after the user stops talking
+        /// we need to actually deactive the pipeline next
+        
         self.pipeline.deactivate()
         DispatchQueue.main.async {
             self.isListening = false
@@ -110,8 +112,6 @@ extension PipelineStore: SpeechEventListener {
     func didTimeout() {
         print("[\(mode)] didTimeout")
     }
-    
-
 }
 
 extension PipelineStore: PipelineDelegate {
@@ -130,5 +130,4 @@ extension PipelineStore: PipelineDelegate {
     func setupFailed(_ error: String) {
         print("[\(mode)] setup failed \(error)")
     }
-    
 }

@@ -16,16 +16,17 @@ struct DemoList: View {
     
     var body: some View {
    
-        let asrStore = PipelineStore(text: "")
+        let asrStore: PipelineStore = PipelineStore("")
         asrStore.startPipeline()
-        let ttsStore = SpeechStore()
-        let nluStore = NLUStore(result:nil)
         
-        let demos = [
-            DemoView(demo: demoData[0], destination: AnyView(ASRDemoDetail(store:asrStore))),
+        let ttsStore: SpeechStore = SpeechStore()
+        let nluStore: NLUStore = NLUStore(nil)
+        
+        let demos: Array<DemoView> = [
+            DemoView(demo: demoData[0], destination: AnyView(ASRDemoDetail(store: asrStore))),
             DemoView(demo: demoData[1], destination: AnyView(TTSDemoDetail(asrStore: asrStore, ttsStore: ttsStore))),
             DemoView(demo: demoData[2], destination: AnyView(NLUDemoDetail(asrStore: asrStore, nluStore: nluStore))),
-            DemoView(demo: demoData[3], destination: AnyView(WakewordDemoDetail(store:asrStore)))
+            DemoView(demo: demoData[3], destination: AnyView(WakewordDemoDetail(store: asrStore)))
         ]
         
         return NavigationView {
@@ -35,11 +36,9 @@ struct DemoList: View {
                     DemoRow(demo: demo.demo)
                 }
             }
-            
             .navigationBarTitle(Text("Spokestack Demos"))
-            
-            
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

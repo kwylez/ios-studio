@@ -10,10 +10,11 @@ import SwiftUI
 
 struct LaunchView: View {
     
-    @State private var permissionsComplete:Bool = UserDefaults.standard.bool(forKey: "permissions")
+    @State private var permissionsComplete: Bool = UserDefaults.standard.bool(forKey: "permissions")
     
     var body: some View {
-        if (permissionsComplete) {
+        
+        if permissionsComplete {
             return AnyView(DemoList())
         } else {
             return AnyView(Permissions(permissionsComplete:$permissionsComplete))
