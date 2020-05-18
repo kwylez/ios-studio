@@ -21,15 +21,7 @@ struct Permissions: View {
     // MARK: Internal (properties)
     
     @Binding var permissionsComplete: Bool
-    
-    /// Merge all of the request / check into publishers
-    
-//    init(permissionsComplete: Binding<Bool>) {
-//        self._permissionsComplete = permissionsComplete
-//        self.checkMic()
-//        self.checkASR()
-//    }
-    
+
     var body: some View {
         
         VStack {
@@ -142,7 +134,7 @@ struct Permissions: View {
         
         if (self.micState == .authorized) && (self.asrState == .authorized) {
             
-            self.permissionsComplete.toggle()
+            self.permissionsComplete = true
             UserDefaults.standard.set(true, forKey: "permissions")
         }
     }
@@ -160,7 +152,7 @@ struct Permissions: View {
         
         if (self.micState == .authorized) && (self.asrState == .authorized) {
             
-            self.permissionsComplete.toggle()
+            self.permissionsComplete = true
             UserDefaults.standard.set(true, forKey: "permissions")
         }
     }
