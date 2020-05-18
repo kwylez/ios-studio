@@ -42,7 +42,7 @@ extension SpeechStore: TextToSpeechDelegate {
         print("tts success")
     }
     
-    func failure(error: Error) {
+    func failure(ttsError error: Error) {
         print("tts failed \(error)")
         DispatchQueue.main.async {
             self.isSpeaking = false

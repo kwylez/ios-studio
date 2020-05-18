@@ -85,7 +85,7 @@ extension NLUStore: NLUDelegate {
         print("Trace: \(trace)")
     }
     
-    func failure(error: Error) {
+    func failure(nluError error: Error) {
         print("Failure: \(error)")
         
         DispatchQueue.main.async {

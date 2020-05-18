@@ -71,7 +71,7 @@ class PipelineStore: ObservableObject {
 
 extension PipelineStore: SpeechEventListener {
     
-    func activate() {
+    func didActivate() {
         print("[\(mode)] heard wakeword")
         if mode == .wakeword {
             self.pipeline.activate()
@@ -80,8 +80,8 @@ extension PipelineStore: SpeechEventListener {
             }
         }
     }
-
-    func deactivate() {
+    
+    func didDeactivate() {
         print("[\(mode)] heard speech ended")
         
         /// this gets called after the user stops talking
@@ -93,8 +93,8 @@ extension PipelineStore: SpeechEventListener {
         }
     }
     
-    func didError(_ error: Error) {
-        print("[\(mode)] did didError \(error)")
+    func failure(speechError: Error) {
+        print("[\(mode)] did speechError \(speechError)")
     }
     
     func didTrace(_ trace: String) {
@@ -115,6 +115,7 @@ extension PipelineStore: SpeechEventListener {
 }
 
 extension PipelineStore: PipelineDelegate {
+    
     func didInit() {
         print("[\(mode)] didInit")
     }
