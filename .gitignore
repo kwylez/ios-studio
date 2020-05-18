@@ -35,3 +35,4 @@ mobile.tflite
 mobile.json
 timer.tflite
 timer.json
+.DS_Store
