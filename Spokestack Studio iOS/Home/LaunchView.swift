@@ -14,10 +14,10 @@ struct LaunchView: View {
     
     var body: some View {
         
-        if permissionsComplete {
+        if self.permissionsComplete {
             return AnyView(DemoList())
         } else {
-            return AnyView(Permissions(permissionsComplete:$permissionsComplete))
+            return AnyView(Permissions(permissionsComplete: self.$permissionsComplete))
         }
     }
 }

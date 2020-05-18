@@ -45,7 +45,9 @@ struct DemoList: View {
 struct DemoView: Identifiable {
 
     let id: Int
+    
     let demo: Demo
+    
     let destination: AnyView
 
     init(demo: Demo, destination: AnyView) {
