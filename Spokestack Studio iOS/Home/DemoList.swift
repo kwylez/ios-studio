@@ -11,7 +11,9 @@ import SwiftUI
 struct DemoList: View {
     
     init() {
+        
         UITableViewCell.appearance().backgroundColor = UIColor(named: "SpokestackBackground")
+        UITableView.appearance().separatorStyle = .none
     }
     
     var body: some View {
