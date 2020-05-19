@@ -62,6 +62,7 @@ struct ASRDemoDetail: View {
                     )
             }
         }
+        .edgesIgnoringSafeArea(.bottom)
         .navigationBarTitle("Speech Recognition")
         .onAppear {
             self.store.configure(.push2talk)
