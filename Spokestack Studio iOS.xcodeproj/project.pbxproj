@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0115A0F624743E2E00229164 /* ThreeDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0115A0F524743E2E00229164 /* ThreeDotsView.swift */; };
 		3310B776244A15740015C812 /* HintArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3310B775244A15740015C812 /* HintArrowView.swift */; };
 		3332887624461933006C3BDE /* NLUStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332887524461933006C3BDE /* NLUStore.swift */; };
 		3332887924462EAE006C3BDE /* NLUDemoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3332887824462EAE006C3BDE /* NLUDemoDetail.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0115A0F524743E2E00229164 /* ThreeDotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDotsView.swift; sourceTree = "<group>"; };
 		1B4E6F80FD9BA61D40C7D88F /* Pods-Spokestack Studio iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spokestack Studio iOS.release.xcconfig"; path = "Target Support Files/Pods-Spokestack Studio iOS/Pods-Spokestack Studio iOS.release.xcconfig"; sourceTree = "<group>"; };
 		3310B775244A15740015C812 /* HintArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintArrowView.swift; sourceTree = "<group>"; };
 		3332887524461933006C3BDE /* NLUStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLUStore.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				33A3FB56243FC49300FBFBCB /* WaveView.swift */,
 				3310B775244A15740015C812 /* HintArrowView.swift */,
 				3372BF6A2460D6C000EFB111 /* ListeningIcon.swift */,
+				0115A0F524743E2E00229164 /* ThreeDotsView.swift */,
 			);
 			path = "Shared Components";
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				3352E927244F6F6800890B7E /* LaunchView.swift in Sources */,
 				33AACCCC2444CB1700DF3700 /* TTSDemoDetail.swift in Sources */,
 				3398470324478D9C000C4242 /* ClassifyingView.swift in Sources */,
+				0115A0F624743E2E00229164 /* ThreeDotsView.swift in Sources */,
 				33A3FB43243F6ADD00FBFBCB /* DemoList.swift in Sources */,
 				33A3FB51243F822100FBFBCB /* ASRDemoDetail.swift in Sources */,
 				3332887624461933006C3BDE /* NLUStore.swift in Sources */,
