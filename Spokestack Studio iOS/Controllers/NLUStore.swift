@@ -53,7 +53,7 @@ class NLUStore:  ObservableObject {
         self.nlu = nil
     }
     
-    func classify (_ text: String) {
+    func classify(_ text: String) {
         
         self.startTime = CFAbsoluteTimeGetCurrent()
         self.error = nil
