@@ -147,7 +147,6 @@ struct NLUDemoDetail: View {
                 
                 Section(header: Text("Model Description")) {
                     Text(modelData[selectedModel].description)
-                    
                 }
                 
                 Section(header: Text("Examples")) {
