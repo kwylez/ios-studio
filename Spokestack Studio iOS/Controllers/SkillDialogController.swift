@@ -73,40 +73,38 @@ struct RecipeHandler: RequestHandler {
         print("got item \(String(describing: item))")
         let repromptSpeech: String = responses["RECIPE_NOT_FOUND_REPROMPT"]!
         
-        if item != nil {
+        guard let itemSlot: Slot = item,
+            let itemValue: String = itemSlot.value as? String else {
             
-            let itemValue: String = item!.value! as! String
-            print("got value \(itemValue)")
-            
-            let fuse: Fuse = Fuse(threshold:0.3)
-            let keys: Array<String> = Array(recipes.keys)
-            
-            /// let's do a fuzzy match to deal with an imperfect ASR
-            let results = fuse.search(itemValue, in: keys)
+                return HandlerOutput(speak: responses["RECIPE_NOT_FOUND_WITHOUT_ITEM_NAME"]! + repromptSpeech, reprompt: repromptSpeech)
+        }
 
-            results.forEach { item in
-                print("score: \(item.score) - \(keys[item.index])")
-            }
-            
-            var recipe: String?
-            
-            if !results.isEmpty {
-                recipe = recipes[keys[results[0].index]]
-            }
-            
-            if recipe != nil {
-                
-                return HandlerOutput(speak: recipe!)
+        print("got value \(itemValue)")
+        
+        let fuse: Fuse = Fuse(threshold:0.3)
+        let keys: Array<String> = Array(recipes.keys)
+        
+        /// let's do a fuzzy match to deal with an imperfect ASR
+        let results = fuse.search(itemValue, in: keys)
 
-            } else {
-
-                let speak: String = String(format: responses["RECIPE_NOT_FOUND_WITH_ITEM_NAME"]!,itemValue)
-                return HandlerOutput(speak: speak + repromptSpeech, reprompt: repromptSpeech)
-            }
+        results.forEach { item in
+            print("score: \(item.score) - \(keys[item.index])")
+        }
+        
+        var recipe: String?
+        
+        if !results.isEmpty {
+            recipe = recipes[keys[results[0].index]]
+        }
+        
+        if recipe != nil {
+            
+            return HandlerOutput(speak: recipe!)
 
         } else {
-            
-            return HandlerOutput(speak: responses["RECIPE_NOT_FOUND_WITHOUT_ITEM_NAME"]! + repromptSpeech, reprompt: repromptSpeech)
+
+            let speak: String = String(format: responses["RECIPE_NOT_FOUND_WITH_ITEM_NAME"]!,itemValue)
+            return HandlerOutput(speak: speak + repromptSpeech, reprompt: repromptSpeech)
         }
     }
 }
