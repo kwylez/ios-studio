@@ -23,12 +23,14 @@ struct DemoList: View {
         
         let ttsStore: SpeechStore = SpeechStore()
         let nluStore: NLUStore = NLUStore(nil)
+        let dialogStore: DialogStore = DialogStore()
         
         let demos: Array<DemoView> = [
             DemoView(demo: demoData[0], destination: AnyView(ASRDemoDetail(store: asrStore))),
             DemoView(demo: demoData[1], destination: AnyView(TTSDemoDetail(asrStore: asrStore, ttsStore: ttsStore))),
             DemoView(demo: demoData[2], destination: AnyView(NLUDemoDetail(asrStore: asrStore, nluStore: nluStore))),
-            DemoView(demo: demoData[3], destination: AnyView(WakewordDemoDetail(store: asrStore)))
+            DemoView(demo: demoData[3], destination: AnyView(WakewordDemoDetail(store: asrStore))),
+            DemoView(demo: demoData[4], destination: AnyView(MinecraftDemoDetail(dialogStore: dialogStore)))
         ]
         
         return NavigationView {

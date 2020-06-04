@@ -11,7 +11,7 @@ import Spokestack
 
 struct ASRDemoDetail: View {
     
-    @ObservedObject var store:PipelineStore
+    @ObservedObject var store: PipelineStore
     
     var body: some View {
         
