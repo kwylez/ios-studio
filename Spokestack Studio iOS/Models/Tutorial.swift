@@ -6,7 +6,7 @@
 //  Copyright © 2020 Spokestack. All rights reserved.
 //
 
-struct Demo: Hashable, Codable, Identifiable {
+struct Tutorial: Hashable, Codable, Identifiable {
     
     var id: Int
     

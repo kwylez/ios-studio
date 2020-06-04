@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import Spokestack
 
-struct MinecraftDemoDetail: View {
+struct MinecraftTutorialDetail: View {
     
     @ObservedObject var dialogStore: DialogStore
     
@@ -75,7 +75,7 @@ struct MinecraftDemoDetail: View {
 struct MinecraftDemoDetail_Previews: PreviewProvider {
     static var previews: some View {
 
-        MinecraftDemoDetail(dialogStore: DialogStore())
+        MinecraftTutorialDetail(dialogStore: DialogStore())
                 .environment(\.colorScheme, .light)
     }
 }

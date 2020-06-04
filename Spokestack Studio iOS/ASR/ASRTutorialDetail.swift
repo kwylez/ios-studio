@@ -9,7 +9,7 @@
 import SwiftUI
 import Spokestack
 
-struct ASRDemoDetail: View {
+struct ASRTutorialDetail: View {
     
     @ObservedObject var store: PipelineStore
     
@@ -89,7 +89,7 @@ struct ASRDemoDetail: View {
 
 struct ASRDemoDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ASRDemoDetail(store: PipelineStore(""))
+        ASRTutorialDetail(store: PipelineStore(""))
     }
 }
 
