@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct DemoRow: View {
+struct TutorialRow: View {
     
-    var demo: Demo
+    var demo: Tutorial
     
     var body: some View {
         
@@ -27,8 +27,8 @@ struct DemoRow: View {
 struct DemoRow_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            DemoRow(demo: demoData[0])
-            DemoRow(demo: demoData[1])
+            TutorialRow(demo: demoData[0])
+            TutorialRow(demo: demoData[1])
         }
         .previewLayout(.fixed(width: 300, height: 400))
     }

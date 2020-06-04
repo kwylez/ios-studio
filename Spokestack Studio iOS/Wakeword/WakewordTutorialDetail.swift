@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct WakewordDemoDetail: View {
+struct WakewordTutorialDetail: View {
     
     @ObservedObject var store: PipelineStore
         
@@ -65,6 +65,6 @@ struct WakewordDemoDetail: View {
 
 struct WakewordDemoDetail_Previews: PreviewProvider {
     static var previews: some View {
-        WakewordDemoDetail(store: PipelineStore(""))
+        WakewordTutorialDetail(store: PipelineStore(""))
     }
 }

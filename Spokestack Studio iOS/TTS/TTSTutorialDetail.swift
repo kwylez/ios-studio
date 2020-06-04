@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct TTSDemoDetail: View {
+struct TTSTutorialDetail: View {
     
     @ObservedObject var asrStore: PipelineStore
     
@@ -178,6 +178,6 @@ struct TTSDemoDetail: View {
 
 struct TTSDemoDetail_Previews: PreviewProvider {
     static var previews: some View {
-        TTSDemoDetail(asrStore: PipelineStore(""), ttsStore: SpeechStore())
+        TTSTutorialDetail(asrStore: PipelineStore(""), ttsStore: SpeechStore())
     }
 }
