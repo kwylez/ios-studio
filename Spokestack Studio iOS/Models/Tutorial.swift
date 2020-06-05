@@ -1,5 +1,5 @@
 //
-//  Demo.swift
+//  Tutorial.swift
 //  Spokestack Studio iOS
 //
 //  Created by Daniel Tyreus on 4/9/20.
