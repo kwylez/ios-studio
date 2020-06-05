@@ -65,9 +65,7 @@ struct RecipeHandler: RequestHandler {
     }
     
     func handle(_ handlerInput: HandlerInput) -> HandlerOutput {
-        
-        //return HandlerOutput(speak: "")
-        
+
         let item: Slot? = handlerInput.intent!.slots?["item"]
         
         print("got item \(String(describing: item))")
